@@ -49,4 +49,17 @@ public class LinkedList<K> {
 		head = temp;
 		return head;
 	}
+	
+	public INode<K> popLast() {
+		if (head == null)
+			return null;
+		if (head.getNext() == null)
+			return null;
+		INode<K> temp = head;
+		while (temp.getNext().getNext() != null) {
+			temp = temp.getNext();
+		}
+		temp.setNext(null);
+		return head;
+	}
 }

@@ -33,20 +33,6 @@ public class LinkedListTest {
 	 	}
 	 
 	 @Test
-	 public void insertTest() {
-			Node<Integer> firstNode = new Node<>(1);
-			Node<Integer> secondNode = new Node<>(2);
-			Node<Integer> thirdNode = new Node<>(3);
-			LinkedList<Integer> linkedList = new LinkedList<>();
-			linkedList.add(firstNode);
-			linkedList.add(thirdNode);
-			linkedList.insert(firstNode, secondNode, thirdNode);
-			boolean result = linkedList.head.equals(firstNode) && linkedList.head.getNext().equals(secondNode)
-					&& linkedList.tail.equals(thirdNode);
-			Assert.assertTrue(result);
-		}
-	 
-	 @Test
 		public void popTest() {
 			Node<Integer> firstNode = new Node<>(1);
 			Node<Integer> secondNode = new Node<>(2);
@@ -57,6 +43,21 @@ public class LinkedListTest {
 			linkedList.add(secondNode);
 			linkedList.Pop();
 			boolean result = linkedList.head.equals(thirdNode);
+			Assert.assertTrue(result);
+		}
+	 
+	 @Test
+		public void popLastTest() {
+			Node<Integer> firstNode = new Node<>(1);
+			Node<Integer> secondNode = new Node<>(2);
+			Node<Integer> thirdNode = new Node<>(3);
+			LinkedList<Integer> linkedList = new LinkedList<>();
+			linkedList.add(firstNode);
+			linkedList.add(thirdNode);
+			linkedList.add(secondNode);
+			linkedList.popLast();
+			boolean result = linkedList.head.equals(secondNode) &&
+							linkedList.head.getNext().equals(thirdNode);
 			Assert.assertTrue(result);
 		}
 }
