@@ -86,4 +86,24 @@ public class LinkedList<K> {
 			node.setNext(keyNext);
 		}
 	}
+	
+	public INode<K> deleteNodeWithKey(K key) {
+		INode<K> temp = head;
+		while (temp != null && temp.getNext().getKey() != key)
+			temp = temp.getNext();
+		INode<K> deleteNode = temp.getNext();
+		temp.setNext(deleteNode.getNext());
+		deleteNode.setNext(null);
+		return deleteNode;
+	}
+
+	public int size() {
+		INode<K> temp = head;
+		int size = 0;
+		while (temp != null) {
+			temp = temp.getNext();
+			size++;
+		}
+		return size;
+	}
 }
