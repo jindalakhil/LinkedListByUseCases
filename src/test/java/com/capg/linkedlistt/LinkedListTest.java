@@ -74,4 +74,20 @@ public class LinkedListTest {
 			boolean result = search.equals(thirdNode);
 			Assert.assertTrue(result);
 		}
+	 
+	 @Test
+		public void insertAfterKeyTest() {
+			Node<Integer> firstNode = new Node<>(1);
+			Node<Integer> secondNode = new Node<>(2);
+			Node<Integer> thirdNode = new Node<>(3);
+			Node<Integer> fourthNode = new Node<>(20);
+			LinkedList<Integer> linkedList = new LinkedList<>();
+			linkedList.add(firstNode);
+			linkedList.add(thirdNode);
+			linkedList.add(secondNode);
+			linkedList.insertAfterKey(2, fourthNode);
+			INode<Integer> search = linkedList.search(20);
+			boolean result = search.equals(secondNode.getNext());
+			Assert.assertTrue(result);
+		}
 }
