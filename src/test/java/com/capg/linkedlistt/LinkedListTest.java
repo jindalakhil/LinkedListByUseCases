@@ -60,4 +60,18 @@ public class LinkedListTest {
 							linkedList.head.getNext().equals(thirdNode);
 			Assert.assertTrue(result);
 		}
+	 
+	 @Test
+		public void searchTest() {
+			Node<Integer> firstNode = new Node<>(1);
+			Node<Integer> secondNode = new Node<>(2);
+			Node<Integer> thirdNode = new Node<>(3);
+			LinkedList<Integer> linkedList = new LinkedList<>();
+			linkedList.add(firstNode);
+			linkedList.add(thirdNode);
+			linkedList.add(secondNode);
+			INode<Integer> search = linkedList.search(3);
+			boolean result = search.equals(thirdNode);
+			Assert.assertTrue(result);
+		}
 }
