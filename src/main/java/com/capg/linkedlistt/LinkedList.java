@@ -35,4 +35,9 @@ public class LinkedList<K> {
 		temp.setNext(Node);
 		return;
 	}
+	
+	public void insert(INode<K> pre, INode<K> newNode, INode<K> next) {
+		pre.setNext(newNode);
+		newNode.setNext(next);
+	}
 }
