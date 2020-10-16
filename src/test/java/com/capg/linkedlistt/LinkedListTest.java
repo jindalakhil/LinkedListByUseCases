@@ -5,15 +5,17 @@ import org.junit.Test;
 
 public class LinkedListTest {
 
-	@Test
-	public void given3NumberWhenAddedToLinkedListShouldBeAddedToTop() {
-		Node<Integer> firstNode = new Node<Integer>(1);
-		Node<Integer> secondNode = new Node<Integer>(2);
-		Node<Integer> thirdNode = new Node<Integer>(3);
-		firstNode.setNext(secondNode);
-		secondNode.setNext(thirdNode);
-		boolean result=firstNode.getNext().equals(secondNode)
-				&&secondNode.getNext().equals(thirdNode);
-		Assert.assertTrue(result);
+	 @Test
+		public void addedToLinkedList() {
+			Node<Integer> firstNode = new Node<>(1);
+			Node<Integer> secondNode = new Node<>(2);
+			Node<Integer> thirdNode = new Node<>(3);
+			LinkedList<Integer> linkedList = new LinkedList<>();
+			linkedList.add(firstNode);
+			linkedList.add(secondNode);
+			linkedList.add(thirdNode);
+			boolean result = linkedList.head.equals(thirdNode) && linkedList.head.getNext().equals(secondNode)
+					&& linkedList.tail.equals(firstNode);
+			Assert.assertTrue(result);
 	}
 }

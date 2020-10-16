@@ -17,8 +17,9 @@ public class LinkedList<K> {
 			this.tail= node;
 		}
 		else {
-			this.head.setNext(node);
-			this.head=node;
+			INode<K> temp = this.head;
+			this.head = node;
+			this.head.setNext(temp);
 		}
 	}
 }
