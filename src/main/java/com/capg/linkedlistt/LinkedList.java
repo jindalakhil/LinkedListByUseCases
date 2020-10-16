@@ -1,6 +1,6 @@
 package com.capg.linkedlistt;
 
-public class LinkedList<K> {
+public class LinkedList<K extends Comparable<K>> {
 	
 	public INode<K> head;
 	public INode<K> tail;
@@ -106,4 +106,43 @@ public class LinkedList<K> {
 		}
 		return size;
 	}
+	
+	public void sortList() {
+		INode<K> current = head;
+		INode<K> index = null;
+		K temp;
+
+		if (head == null) {
+			return;
+		} else {
+			while (current != null) {
+				index = current.getNext();
+				while (index != null) {
+					K x = current.getKey();
+					K y = index.getKey();
+					if (x.compareTo(y)>0) {
+						temp = current.getKey();
+						current.setKey(index.getKey());
+						index.setKey(temp);
+					}
+					index = index.getNext();
+				}
+				current = current.getNext();
+			}
+		}
+	}	
+	
+	public void addPrint() {
+		if (head == null) {
+			System.out.println("No node present");
+			return;
+		}
+		INode<K> temp = head;
+		while (temp != null) {
+			System.out.println(temp.getKey() + " X ");
+			temp = temp.getNext();
+		}
+		return;
+	}
+		
 }

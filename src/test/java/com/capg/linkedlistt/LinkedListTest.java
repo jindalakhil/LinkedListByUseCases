@@ -105,6 +105,8 @@ public class LinkedListTest {
 			INode<Integer> search = linkedList.deleteNodeWithKey(20);
 			System.out.println(linkedList.size());
 			boolean result = search.equals(fourthNode);
+			linkedList.sortList();                              
+			linkedList.addPrint();
 			Assert.assertTrue(result);
 		}
 }
