@@ -40,4 +40,13 @@ public class LinkedList<K> {
 		pre.setNext(newNode);
 		newNode.setNext(next);
 	}
+	
+	public INode<K> Pop() {
+		if (head == null)
+			return head;
+		INode<K> temp = head.getNext();
+		head.setNext(temp);
+		head = temp;
+		return head;
+	}
 }
